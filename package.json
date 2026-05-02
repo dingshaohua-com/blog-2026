@@ -7,10 +7,12 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "biome": "biome check --write ."
+    "biome": "biome check --write .",
+    "gen:api":"orval"
   },
   "dependencies": {
     "@fontsource-variable/geist": "^5.2.8",
+    "axios": "^1.16.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^1.14.0",
@@ -34,6 +36,7 @@
     "@vitejs/plugin-react": "^6.0.1",
     "babel-plugin-react-compiler": "^1.0.0",
     "globals": "^17.5.0",
+    "orval": "^8.9.0",
     "tailwindcss": "^4.2.4",
     "typescript": "~6.0.2",
     "vite": "^8.0.10"
