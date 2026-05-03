@@ -15,7 +15,7 @@ export default defineConfig({
         mutator: {
           path: './src/api/api.base.ts',
           name: 'customAxiosInstance',
-        }
+        },
       },
     },
   },

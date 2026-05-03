@@ -1,12 +1,7 @@
 import { useState } from 'react';
 import viteLogo from '@/assets/imgs/vite.svg';
-import {
-  COLOR_THEME_OPTIONS,
-  readStoredColorTheme,
-  setColorTheme,
-  type ColorThemeId,
-} from '@/utils/theme-helper';
 import { Button } from '@/components/ui/button';
+import { COLOR_THEME_OPTIONS, type ColorThemeId, readStoredColorTheme, setColorTheme } from '@/utils/theme-helper';
 
 export default function HelloWorld() {
   const [colorTheme, setColorThemeState] = useState<ColorThemeId>(readStoredColorTheme);
@@ -23,16 +18,7 @@ export default function HelloWorld() {
       <div className="mb-4 flex flex-wrap gap-2">
         <span className="text-muted-foreground self-center text-sm">主题：</span>
         {COLOR_THEME_OPTIONS.map(({ id, label }) => (
-          <button
-            key={id}
-            type="button"
-            onClick={() => handleThemeChange(id)}
-            className={`rounded-md border px-3 py-1 text-sm transition-colors ${
-              colorTheme === id
-                ? 'border-primary bg-primary text-primary-foreground'
-                : 'border-border bg-card text-card-foreground hover:bg-accent'
-            }`}
-          >
+          <button key={id} type="button" onClick={() => handleThemeChange(id)} className={`rounded-md border px-3 py-1 text-sm transition-colors ${colorTheme === id ? 'border-primary bg-primary text-primary-foreground' : 'border-border bg-card text-card-foreground hover:bg-accent'}`}>
             {label}
           </button>
         ))}

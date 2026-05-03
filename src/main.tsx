@@ -7,6 +7,4 @@ import { applyColorTheme, readStoredColorTheme } from '@/utils/theme-helper';
 applyColorTheme(readStoredColorTheme());
 
 const root = createRoot(document.querySelector('#root')!);
-root.render(
-  <RouterProvider router={router} />,
-);
+root.render(<RouterProvider router={router} />);

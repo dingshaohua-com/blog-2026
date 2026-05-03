@@ -7,8 +7,8 @@
  */
 
 export type DeleteArticleParams = {
-/**
- * 文章 ID
- */
-id: number;
+  /**
+   * 文章 ID
+   */
+  id: number;
 };
