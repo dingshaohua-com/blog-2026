@@ -8,7 +8,7 @@
 import type { DatatypesJSONTypeModelAppContent } from './datatypesJSONTypeModelAppContent';
 
 export interface ModelAppInfo {
-  /** 使用 JSONType 绑定上面的结构体 */
+  /** 使用泛型 JSONType 绑定，实现自动序列化/反序列化 */
   content?: DatatypesJSONTypeModelAppContent;
   id?: number;
   version?: string;

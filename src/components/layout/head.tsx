@@ -9,10 +9,7 @@ const NAV_ITEMS = [
 export default function Header() {
   return (
     <header className="sticky top-0 z-10 border-b border-border bg-background shadow-sm">
-      <nav
-        className="mx-auto flex h-14 max-w-5xl items-center gap-1 px-4"
-        aria-label="主导航"
-      >
+      <nav className="mx-auto flex h-14 max-w-5xl items-center gap-1 px-4" aria-label="主导航">
         {NAV_ITEMS.map((item) => (
           <NavLink
             key={item.to}
@@ -21,13 +18,7 @@ export default function Header() {
             onClick={() => {
               window.scrollTo(0, 0);
             }}
-            className={({ isActive }) =>
-              `rounded-md px-3 py-2 text-sm font-medium transition-colors ${
-                isActive
-                  ? 'bg-accent text-accent-foreground'
-                  : 'text-muted-foreground hover:bg-muted hover:text-foreground'
-              }`
-            }
+            className={({ isActive }) => `rounded-md px-3 py-2 text-sm font-medium transition-colors ${isActive ? 'bg-accent text-accent-foreground' : 'text-muted-foreground hover:bg-muted hover:text-foreground'}`}
           >
             {item.label}
           </NavLink>

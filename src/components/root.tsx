@@ -1,5 +1,5 @@
-import Header from '@/components/layout/head';
 import Content from '@/components/layout/content';
+import Header from '@/components/layout/head';
 
 export default function Root(): React.JSX.Element {
   return (
