@@ -9,6 +9,7 @@ const router = createHashRouter([
     children: [
       { index: true, Component: lazy(() => import('@/pages/home')) },
       { path: '/blog', Component: lazy(() => import('@/pages/blog')) },
+      { path: '/mood', Component: lazy(() => import('@/pages/mood')) },
       { path: '/about', Component: lazy(() => import('@/pages/about')) },
     ],
   },

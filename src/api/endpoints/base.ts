@@ -5,17 +5,27 @@
  * 基于 Go + GORM 的博客系统后端
  * OpenAPI spec version: 0.1
  */
+import type {
+  GetAppInfo200
+} from '../model';
 
 import { customAxiosInstance } from '../api.base';
-import type { GetAppInfo200 } from '../model';
+
+
 
 type SecondParameter<T extends (...args: never) => unknown> = Parameters<T>[1];
 
-/**
+
+  /**
  * 获取当前后端应用的版本、环境、运行状态等基础信息
  * @summary 获取系统信息
  */
-export const getAppInfo = (options?: SecondParameter<typeof customAxiosInstance<GetAppInfo200>>) => {
-  return customAxiosInstance<GetAppInfo200>({ url: `/app-info`, method: 'GET' }, options);
-};
-export type GetAppInfoResult = NonNullable<Awaited<ReturnType<typeof getAppInfo>>>;
+export const getAppInfo = (
+
+ options?: SecondParameter<typeof customAxiosInstance<GetAppInfo200>>,) => {
+      return customAxiosInstance<GetAppInfo200>(
+      {url: `/app-info`, method: 'GET'
+    },
+      options);
+    }
+  export type GetAppInfoResult = NonNullable<Awaited<ReturnType<typeof getAppInfo>>>

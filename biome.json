@@ -47,5 +47,17 @@
         "noBlankTarget": "off"
       }
     }
-  }
+  },
+  "overrides": [
+    {
+      "includes": ["src/pages/mood/index.tsx"],
+      "linter": {
+        "rules": {
+          "security": {
+            "noDangerouslySetInnerHtml": "off"
+          }
+        }
+      }
+    }
+  ]
 }

@@ -6,6 +6,4 @@
  * OpenAPI spec version: 0.1
  */
 
-export interface DatatypesJSONTypeModelAppContent {
-  [key: string]: unknown;
-}
+export interface DatatypesJSONTypeModelAppContent { [key: string]: unknown }

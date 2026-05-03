@@ -3,6 +3,7 @@ import { NavLink } from 'react-router';
 const NAV_ITEMS = [
   { to: '/', label: '首页', end: true },
   { to: '/blog', label: '博客', end: false },
+  { to: '/mood', label: '心情', end: false },
   { to: '/about', label: '关于', end: false },
 ] as const;
 

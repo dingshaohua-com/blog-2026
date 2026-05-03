@@ -5,48 +5,89 @@
  * 基于 Go + GORM 的博客系统后端
  * OpenAPI spec version: 0.1
  */
+import type {
+  DeleteArticle200,
+  DeleteArticleParams,
+  GetArticleId200,
+  ModelArticle,
+  PostArticle200,
+  PutArticle200,
+  UtilsJsonResult
+} from '../model';
 
 import { customAxiosInstance } from '../api.base';
-import type { DeleteArticle200, DeleteArticleParams, GetArticleId200, ModelArticle, PostArticle200, PutArticle200, UtilsJsonResult } from '../model';
+
+
 
 type SecondParameter<T extends (...args: never) => unknown> = Parameters<T>[1];
 
-/**
+
+  /**
  * @summary 获取文章列表
  */
-export const getArticle = (options?: SecondParameter<typeof customAxiosInstance<UtilsJsonResult>>) => {
-  return customAxiosInstance<UtilsJsonResult>({ url: `/article`, method: 'GET' }, options);
-};
-/**
+export const getArticle = (
+
+ options?: SecondParameter<typeof customAxiosInstance<UtilsJsonResult>>,) => {
+      return customAxiosInstance<UtilsJsonResult>(
+      {url: `/article`, method: 'GET'
+    },
+      options);
+    }
+  /**
  * 根据文章对象中的 ID 更新标题、内容、分类等信息
  * @summary 更新文章
  */
-export const putArticle = (modelArticle: ModelArticle, options?: SecondParameter<typeof customAxiosInstance<PutArticle200>>) => {
-  return customAxiosInstance<PutArticle200>({ url: `/article`, method: 'PUT', headers: { 'Content-Type': 'application/json' }, data: modelArticle }, options);
-};
-/**
+export const putArticle = (
+    modelArticle: ModelArticle,
+ options?: SecondParameter<typeof customAxiosInstance<PutArticle200>>,) => {
+      return customAxiosInstance<PutArticle200>(
+      {url: `/article`, method: 'PUT',
+      headers: {'Content-Type': 'application/json', },
+      data: modelArticle
+    },
+      options);
+    }
+  /**
  * 提交文章标题、内容等信息创建新篇章
  * @summary 新增文章
  */
-export const postArticle = (modelArticle: ModelArticle, options?: SecondParameter<typeof customAxiosInstance<PostArticle200>>) => {
-  return customAxiosInstance<PostArticle200>({ url: `/article`, method: 'POST', headers: { 'Content-Type': 'application/json' }, data: modelArticle }, options);
-};
-/**
+export const postArticle = (
+    modelArticle: ModelArticle,
+ options?: SecondParameter<typeof customAxiosInstance<PostArticle200>>,) => {
+      return customAxiosInstance<PostArticle200>(
+      {url: `/article`, method: 'POST',
+      headers: {'Content-Type': 'application/json', },
+      data: modelArticle
+    },
+      options);
+    }
+  /**
  * 根据文章 ID 永久删除文章
  * @summary 删除文章
  */
-export const deleteArticle = (params: DeleteArticleParams, options?: SecondParameter<typeof customAxiosInstance<DeleteArticle200>>) => {
-  return customAxiosInstance<DeleteArticle200>({ url: `/article`, method: 'DELETE', params }, options);
-};
-/**
+export const deleteArticle = (
+    params: DeleteArticleParams,
+ options?: SecondParameter<typeof customAxiosInstance<DeleteArticle200>>,) => {
+      return customAxiosInstance<DeleteArticle200>(
+      {url: `/article`, method: 'DELETE',
+        params
+    },
+      options);
+    }
+  /**
  * 根据文章 ID 查询文章的详细内容及分类信息
  * @summary 获取文章详情
  */
-export const getArticleId = (id: number, options?: SecondParameter<typeof customAxiosInstance<GetArticleId200>>) => {
-  return customAxiosInstance<GetArticleId200>({ url: `/article/${id}`, method: 'GET' }, options);
-};
-export type GetArticleResult = NonNullable<Awaited<ReturnType<typeof getArticle>>>;
-export type PutArticleResult = NonNullable<Awaited<ReturnType<typeof putArticle>>>;
-export type PostArticleResult = NonNullable<Awaited<ReturnType<typeof postArticle>>>;
-export type DeleteArticleResult = NonNullable<Awaited<ReturnType<typeof deleteArticle>>>;
-export type GetArticleIdResult = NonNullable<Awaited<ReturnType<typeof getArticleId>>>;
+export const getArticleId = (
+    id: number,
+ options?: SecondParameter<typeof customAxiosInstance<GetArticleId200>>,) => {
+      return customAxiosInstance<GetArticleId200>(
+      {url: `/article/${id}`, method: 'GET'
+    },
+      options);
+    }
+  export type GetArticleResult = NonNullable<Awaited<ReturnType<typeof getArticle>>>
+export type PutArticleResult = NonNullable<Awaited<ReturnType<typeof putArticle>>>
+export type PostArticleResult = NonNullable<Awaited<ReturnType<typeof postArticle>>>
+export type DeleteArticleResult = NonNullable<Awaited<ReturnType<typeof deleteArticle>>>
+export type GetArticleIdResult = NonNullable<Awaited<ReturnType<typeof getArticleId>>>
