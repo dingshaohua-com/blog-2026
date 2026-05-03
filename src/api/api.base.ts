@@ -1,4 +1,5 @@
 import axios, { type AxiosRequestConfig } from 'axios';
+import qs from 'qs';
 
 axios.interceptors.response.use(
   (response) => {
@@ -24,6 +25,7 @@ export const customAxiosInstance = <T>(config: AxiosRequestConfig, options?: Axi
   // 响应拦截器已经处理了数据解构，返回的就是最终的业务数据
   config.baseURL = 'http://localhost:8080/api';
   return axios({
+    paramsSerializer: (params) => qs.stringify(params, { encode: true }),
     ...config,
     ...options,
   }) as Promise<ExtractDataType<T>>;

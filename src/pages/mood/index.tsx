@@ -2,7 +2,8 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import { useCallback, useEffect, useState } from 'react';
 import 'dayjs/locale/zh-cn';
-import { getMood, type MoodRecord, normalizeMoodList } from '@/api/endpoints/mood';
+import { getMood } from '@/api/endpoints/mood';
+import type { ModelMood } from '@/api/model/modelMood';
 import { Button } from '@/components/ui/button';
 import { BLOG_H_COLOR } from '@/pages/blog/helper';
 import { cn } from '@/utils/shadcn/utils';
@@ -12,10 +13,24 @@ dayjs.locale('zh-cn');
 
 const PAGE_SIZE = 14;
 
+type MoodRecord = ModelMood;
+
 function moodFromNow(iso?: string): string {
   if (!iso?.trim()) return '—';
   const d = dayjs(iso);
   return d.isValid() ? d.fromNow() : iso;
+}
+
+/** 兼容后端返回 `{list,total}` 分页结构或裸数组 */
+function normalizeMoodList(raw: unknown): { items: MoodRecord[]; total: number } {
+  if (Array.isArray(raw)) return { items: raw as MoodRecord[], total: raw.length };
+  if (raw && typeof raw === 'object') {
+    const o = raw as Record<string, unknown>;
+    const list = Array.isArray(o.list) ? (o.list as MoodRecord[]) : Array.isArray(o.records) ? (o.records as MoodRecord[]) : [];
+    const total = typeof o.total === 'number' ? o.total : list.length;
+    return { items: list, total };
+  }
+  return { items: [], total: 0 };
 }
 
 export default function Mood() {
@@ -31,9 +46,7 @@ export default function Mood() {
     else setLoading(true);
     setError(null);
     try {
-      const raw = await getMood({
-        params: { current: targetPage, size: PAGE_SIZE },
-      });
+      const raw = await getMood({ current: targetPage, size: PAGE_SIZE });
       const { items: next, total: t } = normalizeMoodList(raw);
       if (append) {
         setItems((prev) => [...prev, ...next]);

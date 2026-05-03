@@ -29,9 +29,7 @@ export default function Blog() {
     error: listError,
   } = useRequest(
     async () => {
-      const raw = await getArticle({
-        params: { current: page, size: BLOG_PAGE_SIZE },
-      });
+      const raw = await getArticle({ current: page, size: BLOG_PAGE_SIZE });
       return normalizeArticleList(raw);
     },
     { refreshDeps: [page] },
