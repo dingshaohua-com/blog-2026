@@ -5,6 +5,7 @@ const NAV_ITEMS = [
   { to: '/blog', label: '博客', end: false },
   { to: '/mood', label: '心情', end: false },
   { to: '/about', label: '关于', end: false },
+  { to: '/friends', label: '友人帐', end: false },
 ] as const;
 
 export default function Header() {

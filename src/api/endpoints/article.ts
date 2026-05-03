@@ -8,11 +8,12 @@
 import type {
   DeleteArticle200,
   DeleteArticleParams,
+  GetArticle200,
   GetArticleId200,
+  GetArticleParams,
   ModelArticle,
   PostArticle200,
-  PutArticle200,
-  UtilsJsonResult
+  PutArticle200
 } from '../model';
 
 import { customAxiosInstance } from '../api.base';
@@ -23,13 +24,15 @@ type SecondParameter<T extends (...args: never) => unknown> = Parameters<T>[1];
 
 
   /**
+ * 分页获取文章列表，包含分类名称和是否有更多
  * @summary 获取文章列表
  */
 export const getArticle = (
-
- options?: SecondParameter<typeof customAxiosInstance<UtilsJsonResult>>,) => {
-      return customAxiosInstance<UtilsJsonResult>(
-      {url: `/article`, method: 'GET'
+    params?: GetArticleParams,
+ options?: SecondParameter<typeof customAxiosInstance<GetArticle200>>,) => {
+      return customAxiosInstance<GetArticle200>(
+      {url: `/article`, method: 'GET',
+        params
     },
       options);
     }

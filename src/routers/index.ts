@@ -11,6 +11,7 @@ const router = createHashRouter([
       { path: '/blog', Component: lazy(() => import('@/pages/blog')) },
       { path: '/mood', Component: lazy(() => import('@/pages/mood')) },
       { path: '/about', Component: lazy(() => import('@/pages/about')) },
+      { path: '/friends', Component: lazy(() => import('@/pages/friends')) },
     ],
   },
 ]);

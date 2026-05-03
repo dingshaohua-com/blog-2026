@@ -50,7 +50,7 @@
   },
   "overrides": [
     {
-      "includes": ["src/pages/mood/index.tsx"],
+      "includes": ["src/pages/mood/index.tsx", "src/pages/friends/comments.tsx"],
       "linter": {
         "rules": {
           "security": {
